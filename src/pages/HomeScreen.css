@@ -1,0 +1,168 @@
+/* Layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f172a;
+  color: white;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e293b;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.sidebar ul li:hover {
+  color: #38bdf8;
+}
+
+.sidebar ul li.active {
+  font-weight: bold;
+}
+
+.teacher-tools {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 30px;
+  background: #0f172a;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.main-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.filter {
+  padding: 8px 14px;
+  border-radius: 18px;
+  background: #334155;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter:hover {
+  background: #475569;
+}
+
+.filter.active {
+  background: #64748b;
+}
+
+.filter.plus {
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.add-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #22c55e;
+}
+
+.actions input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #1e293b;
+  color: white;
+  width: 220px;
+}
+
+.actions input:focus {
+  outline: 2px solid #3b82f6;
+}
+
+/* Flashcard list */
+.flashcard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.flashcard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: #1e293b;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.flashcard-item:hover {
+  background: #334155;
+}
+
+.flashcard-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.flashcard-info p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.more {
+  font-size: 20px;
+  cursor: pointer;
+}
