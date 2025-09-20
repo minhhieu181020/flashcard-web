@@ -13,8 +13,9 @@ function FlashcardDetail() {
     async function fetchFlashcards() {
       try {
         console.log("🔍 Gọi API /listFlashcard với title:", title);
-        const data = await listFlashcard();
-        setFlashcards(res.data);
+        const data = await listFlashcard(title);
+        setFlashcards(data);
+
         console.log("✅ API trả về:", res.data);
       } catch (error) {
         console.error("❌ Lỗi API:", error);
