@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./HomeScreen.css";
 import { getStudies } from "../services/studyService"; // import service
+import { useNavigate } from "react-router-dom"; // ✅ thêm import
 
 function HomeScreen() {
   const [studies, setStudies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // ✅ khởi tạo navigate
 
   useEffect(() => {
     async function fetchStudies() {
@@ -22,7 +24,6 @@ function HomeScreen() {
 
     fetchStudies();
   }, []);
-
 
   if (loading) {
     return <div className="text-center mt-10">Đang tải dữ liệu...</div>;
@@ -68,8 +69,11 @@ function HomeScreen() {
         {/* Study List */}
         <section className="flashcard-list">
           {studies.map((study) => (
-            <div key={study.id} className="flashcard-item">
-              onClick={() => navigate(`/flashcards/${study.title}`)} // 👈 truyền title
+            <div
+              key={study.id}
+              className="flashcard-item"
+              onClick={() => navigate(`/flashcards/${study.title}`)} // ✅ sửa cú pháp onClick
+            >
               <div className="flashcard-info">
                 <h3>{study.title}</h3>
                 <p>

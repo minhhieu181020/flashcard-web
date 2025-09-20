@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { listFlashcard } from "../services/studyService";
 import "./FlashcardDetail.css";
-import { listFlashcard } from "../services/studyService"; // import service
 
 function FlashcardDetail() {
-  const { title } = useParams(); // lấy param từ route
-  const [flashcards, setFlashcards] = useState([]);
+  const { title } = useParams();
+  const [study, setStudy] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,39 +13,46 @@ function FlashcardDetail() {
       try {
         console.log("🔍 Gọi API /listFlashcard với title:", title);
         const data = await listFlashcard(title);
-        setFlashcards(data);
 
-        console.log("✅ API trả về:", res.data);
+        // data = [ { title, description, terms: [...] } ]
+        const foundStudy = data.find((s) => s.title === title);
+        setStudy(foundStudy || null);
       } catch (error) {
         console.error("❌ Lỗi API:", error);
       } finally {
         setLoading(false);
       }
     }
-
     fetchFlashcards();
   }, [title]);
 
   if (loading) {
-    return <div className="text-center mt-10">Đang tải flashcards...</div>;
+    return <div className="loading">Đang tải flashcards...</div>;
+  }
+
+  if (!study) {
+    return <div className="loading">Không tìm thấy bộ từ {title}</div>;
   }
 
   return (
     <div className="flashcard-detail-container">
+      {/* Header */}
       <header className="detail-header">
-        <h1>{title}</h1>
-        <p>{flashcards.length} từ vựng</p>
+        <h1>{study.title}</h1>
+        <p>{study.terms.length} thuật ngữ</p>
+        {study.description && <p className="description">{study.description}</p>}
       </header>
 
-      <section className="flashcard-grid">
-        {flashcards.map((card, index) => (
-          <div key={index} className="flashcard-card">
-            <h3 className="word">{card.word}</h3>
-            <p className="meaning">{card.meaning}</p>
-            <p className="description">{card.description}</p>
-          </div>
-        ))}
-      </section>
+      {/* Terms list */}
+<section className="term-list">
+  {study.terms.map((card) => (
+    <div key={card._id} className="term-card">
+      <div className="term-text">{card.term}</div>
+      <div className="meaning-text">{card.meaning}</div>
+    </div>
+  ))}
+</section>
+
     </div>
   );
 }
