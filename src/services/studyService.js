@@ -5,14 +5,9 @@ export async function getStudies() {
   return res.data;
 }
 
-async function listFlashcard(title) {
-  try {
-    const res = await axios.post("/listFlashcard", { title });
-    console.log("Flashcards:", res.data);
-    return res.data;
-  } catch (err) {
-    console.error("Error fetching flashcards:", err);
-  }
+export async function listFlashcard(title) {
+  const res = await axios.post(`${API_BASE}/listFlashcard`, { title });
+  return res.data;
 }
 
 export async function createFlashcard(data) {
