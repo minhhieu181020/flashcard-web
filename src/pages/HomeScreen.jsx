@@ -6,22 +6,22 @@ function HomeScreen() {
   const [studies, setStudies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  async function fetchStudies() {
-    try {
-      console.log("🔍 Đang gọi API /listStudy ...");
-      const data = await getStudies(); 
-      console.log("✅ API trả về:", data); // log response
-      setStudies(data);
-    } catch (error) {
-      console.error("❌ Lỗi gọi API:", error);
-    } finally {
-      setLoading(false);
+  useEffect(() => {
+    async function fetchStudies() {
+      try {
+        console.log("🔍 Đang gọi API /listStudy ...");
+        const data = await getStudies();
+        console.log("✅ API trả về:", data); // log response
+        setStudies(data);
+      } catch (error) {
+        console.error("❌ Lỗi gọi API:", error);
+      } finally {
+        setLoading(false);
+      }
     }
-  }
 
-  fetchStudies();
-}, []);
+    fetchStudies();
+  }, []);
 
 
   if (loading) {
@@ -69,6 +69,7 @@ useEffect(() => {
         <section className="flashcard-list">
           {studies.map((study) => (
             <div key={study.id} className="flashcard-item">
+              onClick={() => navigate(`/flashcards/${study.title}`)} // 👈 truyền title
               <div className="flashcard-info">
                 <h3>{study.title}</h3>
                 <p>

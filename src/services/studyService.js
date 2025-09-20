@@ -5,9 +5,14 @@ export async function getStudies() {
   return res.data;
 }
 
-export async function getFlashcards(title) {
-  const res = await api.post("/listFlashcard", { title });
-  return res.data;
+async function listFlashcard(title) {
+  try {
+    const res = await axios.post("/listFlashcard", { title });
+    console.log("Flashcards:", res.data);
+    return res.data;
+  } catch (err) {
+    console.error("Error fetching flashcards:", err);
+  }
 }
 
 export async function createFlashcard(data) {
