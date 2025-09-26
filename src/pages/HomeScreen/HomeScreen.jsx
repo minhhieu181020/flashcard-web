@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "./HomeScreen.css";
-import { getStudies } from "../services/studyService"; // import service
-import { useNavigate } from "react-router-dom"; // ✅ thêm import
+import { getStudies } from "../../services/studyService";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 
 function HomeScreen() {
   const [studies, setStudies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // ✅ khởi tạo navigate
+  const navigate = useNavigate();
+
+  const handleCreateClick = () => {
+    navigate("/createFlashcard", {
+      state: { mode: "create" },
+    });
+  };
 
   useEffect(() => {
     async function fetchStudies() {
       try {
         console.log("🔍 Đang gọi API /listStudy ...");
         const data = await getStudies();
-        console.log("✅ API trả về:", data); // log response
+        console.log("✅ API trả về:", data);
         setStudies(data);
       } catch (error) {
         console.error("❌ Lỗi gọi API:", error);
@@ -30,26 +37,7 @@ function HomeScreen() {
   }
 
   return (
-    <div className="container">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <h2>Menu</h2>
-        <ul>
-          <li>Trang chủ</li>
-          <li>Thư viện của bạn</li>
-          <li>Thông báo</li>
-          <li>Speaking</li>
-          <li className="active">VOL</li>
-          <li>IELTS Cambridge</li>
-          <li>Lớp mới</li>
-        </ul>
-        <div className="teacher-tools">
-          <p>Công cụ của giáo viên</p>
-          <li>Giao hoạt động</li>
-        </div>
-      </aside>
-
-      {/* Main */}
+    <Sidebar>
       <main className="main">
         <header className="main-header">
           <h1>VOL</h1>
@@ -61,7 +49,9 @@ function HomeScreen() {
             <button className="filter plus">+</button>
           </div>
           <div className="actions">
-            <button className="add-btn">+ Tài liệu học</button>
+            <button className="add-btn" onClick={handleCreateClick}>
+              + Tài liệu học
+            </button>
             <input type="text" placeholder="Tìm kiếm thư mục này" />
           </div>
         </header>
@@ -72,7 +62,7 @@ function HomeScreen() {
             <div
               key={study.id}
               className="flashcard-item"
-              onClick={() => navigate(`/flashcards/${study.title}`)} // ✅ sửa cú pháp onClick
+              onClick={() => navigate(`/flashcards/${study.title}`)}
             >
               <div className="flashcard-info">
                 <h3>{study.title}</h3>
@@ -86,7 +76,7 @@ function HomeScreen() {
           ))}
         </section>
       </main>
-    </div>
+    </Sidebar>
   );
 }
 

@@ -1,0 +1,115 @@
+.create-flashcard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px;
+  background: #0f1629;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.cf-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.cf-input,
+.cf-textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 16px;
+  background: #1c2541;
+  color: #fff;
+  font-size: 16px;
+}
+
+.cf-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.cf-terms {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cf-term-card {
+  display: flex;
+  align-items: center;
+  background: #1c2541;
+  border-radius: 10px;
+  padding: 14px;
+  gap: 14px;
+}
+
+.cf-term-index {
+  font-size: 18px;
+  font-weight: bold;
+  width: 30px;
+  text-align: center;
+}
+
+.cf-term-fields {
+  flex: 1;
+  display: flex;
+  gap: 12px;
+}
+
+.cf-term-input,
+.cf-meaning-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 15px;
+  background: #2b334a;
+  color: #fff;
+}
+
+.cf-remove-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #bbb;
+}
+
+.cf-remove-btn:hover {
+  color: #ff4d4d;
+}
+
+.cf-add-btn {
+  margin-top: 20px;
+  background: #2b334a;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.cf-add-btn:hover {
+  background: #3c4a6e;
+}
+
+.cf-footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.cf-create-btn {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cf-create-btn:hover {
+  background: #3399ff;
+}

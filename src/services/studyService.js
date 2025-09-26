@@ -12,7 +12,7 @@ export async function listFlashcard(title) {
   return res.data;
 }
 
-// Tạo flashcard mới
+// Tạo Study mới + flashcards
 export async function createFlashcard(data) {
   const res = await api.post("/createFlashcard", data);
   return res.data;

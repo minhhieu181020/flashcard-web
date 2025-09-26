@@ -1,0 +1,325 @@
+/* FlashcardDetail CSS - dark theme, Quizlet-like */
+
+:root{
+  --bg: #0b0f2a;
+  --panel: #2b3350;
+  --card: #343a57;
+  --muted: #9aa3b8;
+  --accent: #4f7bd8;
+  --white: #ffffff;
+}
+
+.fd-root {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--white);
+  padding: 28px 40px;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.fd-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.fd-header .fd-breadcrumb {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.fd-title {
+  font-size: 32px;
+  margin: 6px 0 8px;
+}
+.fd-desc {
+  color: var(--muted);
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+/* top tools */
+.fd-top-tools {
+  display:flex;
+  gap:12px;
+  margin-bottom: 18px;
+}
+.fd-btn {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.fd-btn.secondary {
+  background: rgba(79,123,216,0.08);
+  color: var(--white);
+}
+
+/* viewer */
+.fd-viewer-wrap {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* big card */
+.fd-big-card {
+  width: 100%;
+  max-width: 900px;
+  height: 320px;
+  background: linear-gradient(180deg, var(--card), #2b334a);
+  border-radius: 18px;
+  position: relative;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* top-right small icons */
+.fd-card-icons {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  display:flex;
+  gap:8px;
+}
+.icon-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--white);
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* card content */
+.fd-card-content {
+  text-align: center;
+  max-width: 85%;
+}
+.fd-term {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.fd-meaning {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* controls under the card */
+.fd-controls {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top: 6px;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+}
+.ctrl { border: none; background: transparent; cursor: pointer; color: var(--white); }
+.circle {
+  width:48px; height:48px; border-radius: 50%;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.03);
+  font-size: 18px;
+}
+.ctrl-index {
+  color: var(--muted);
+  font-weight: 600;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+.ctrl-spacer { flex: 1 1 auto; }
+
+/* action buttons */
+.ctrl.action {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--white);
+}
+.ctrl.action.primary {
+  background: linear-gradient(90deg, #5b8bf6, #3b6fe6);
+  border: none;
+  color: #fff;
+}
+.ctrl.action.active {
+  box-shadow: 0 6px 18px rgba(79,123,216,0.18);
+}
+
+/* term list below */
+/* term list */
+.fd-term-list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fd-term-item {
+  display: flex;
+  justify-content: space-between;
+  background: #2b334a;
+  border-radius: 10px;
+  padding: 16px 20px;
+  align-items: center;
+  color: var(--white);
+}
+
+.fd-term-left {
+  font-size: 18px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.fd-term-right {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fd-meaning {
+  margin: 0;
+  font-size: 16px;
+  color: #dcdcdc;
+  flex: 1;
+}
+
+.fd-term-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--white);
+}
+
+.icon-btn:hover {
+  color: var(--blue);
+}
+
+.fd-term-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.fd-edit-terms-btn {
+  background: #3c4a6e;
+  color: var(--white);
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fd-edit-terms-btn:hover {
+  background: #4a5a7a;
+}
+
+
+/* single term card */
+.term-card {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #283146;
+  border-radius: 12px;
+  padding: 14px 18px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+}
+.term-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+.term-card.active {
+  border-left-color: var(--accent);
+  box-shadow: 0 10px 26px rgba(11,18,42,0.6);
+}
+.term-left { flex: 1; }
+.term-right { flex: 2; text-align: left; padding-left: 18px; color: var(--muted); }
+
+/* term text */
+.term-word {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+}
+.term-meaning {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* responsive */
+@media (max-width: 880px) {
+  .fd-inner { padding: 0 18px; }
+  .fd-big-card { height: 260px; }
+  .fd-term { font-size: 28px; }
+  .fd-meaning { font-size: 16px; }
+}
+/* card flip */
+.fd-big-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+.fd-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.fd-big-card.flipped .fd-card-inner {
+  transform: rotateX(180deg);
+}
+
+.fd-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+.fd-card-face.front {
+  background: linear-gradient(180deg, var(--card), #2b334a);
+}
+.fd-card-face.back {
+  background: linear-gradient(180deg, #2b334a, var(--card));
+  transform: rotateX(180deg);
+}
+
+/* meaning lớn hơn */
+.fd-card-face.back .fd-meaning {
+  font-size: 22px;
+  color: var(--white);
+}
